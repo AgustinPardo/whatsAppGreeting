@@ -65,3 +65,24 @@ while True:
 
 
 driver.close()
+
+
+
+# for i in chats[1:15]:
+#     #print(i.text.split("\n")[0])
+#     i.click()
+#     name_chat=i.text.split("\n")[0]
+#     name_chats.append(name_chat)
+
+#     htmlcode=(driver.page_source).encode('utf-8')
+#     soup = BeautifulSoup(htmlcode,features="html.parser")
+#     take=False
+#     msg=[]
+#     for tag in soup.find_all('div', class_="_1ij5F"):
+#             persona=tag.find_all("div", class_="_2XJpe")
+#             if persona:
+#                 name_persona=persona[0].find_all("div", class_="copyable-text")
+#                 if name_persona:
+#                     print(name_persona[0].get_attribute_list("data-pre-plain-text"))
+#                     print(name_persona[0].text)
+
