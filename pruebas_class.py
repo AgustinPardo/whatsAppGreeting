@@ -55,7 +55,7 @@ class Driver:
     def closeDriver(self):
 
         self.driver.close()
-        
+
         return 0
 
 class Panel:
@@ -107,8 +107,15 @@ class Chat:
     def name(self):
         return self.driver.find_elements_by_class_name("YEe1t")[0].text
 
+    def actuaDate():
+        now = datetime.datetime.now()
+        return (now.strftime("%d/%m/%Y"))
+
     def readMsgs(self):
+
         chat_msgs=[]
+        today=actuaDate()
+
         htmlcode=(self.driver.page_source).encode('utf-8')
         soup = BeautifulSoup(htmlcode,features="html.parser")
         for tag in soup.find_all('div', class_="_1ij5F"):
@@ -121,13 +128,10 @@ class Chat:
                     name_msg=info_msg[0].split("]")[1].strip(" ")[:-1]
                     time_msg=info_msg[0].split("]")[0].split(",")[1].lstrip(" ")
                     text_msg=(name_persona[0].text)
-
-                    chat_msgs.append((name_msg, time_msg, text_msg))
+                    if time_msg = today:
+                        chat_msgs.append((name_msg, time_msg, text_msg))
 
         return chat_msgs
-
-    def parseDate():
-        pass
 
     def greet(self):
 
@@ -139,7 +143,6 @@ class Chat:
         else_greet=False
 
         for msg in chat_msgs:
-            print(msg)
             for element in word:
                 if element in msg[2].lower() and msg[0] != self.user_name :
                     else_greet=True
