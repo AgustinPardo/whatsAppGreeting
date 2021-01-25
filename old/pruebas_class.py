@@ -128,7 +128,7 @@ class Chat:
                     name_msg=info_msg[0].split("]")[1].strip(" ")[:-1]
                     time_msg=info_msg[0].split("]")[0].split(",")[1].lstrip(" ")
                     text_msg=(name_persona[0].text)
-                    if time_msg = today:
+                    if time_msg == today:
                         chat_msgs.append((name_msg, time_msg, text_msg))
 
         return chat_msgs
@@ -156,6 +156,8 @@ if __name__ == '__main__':
 
 
     driver = Driver("Bien02")
+
+    print(driver.getUser())
     panel=Panel(driver.driver, driver.getUser(), driver.greet_string)
     panel.greetChats()
     driver.closeDriver()
