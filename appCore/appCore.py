@@ -1,22 +1,17 @@
+import sys
 import time
 import datetime
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.keys import Keys
-
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-
 from selenium.common.exceptions import InvalidArgumentException, TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait 
 
-import sys
-
-
-
 class Driver:
 
-    def __init__(self, browser_user="prueba2"):
+    def __init__(self, browser_user="UserWapp"):
 
         self.browser_user=browser_user
         self.driver=self.connect()
@@ -58,7 +53,7 @@ class Driver:
 
         return user_name
         
-    def closeDriver(self):
+    def disconnect(self):
 
         self.driver.close()
 
@@ -94,7 +89,7 @@ class Panel:
                 driver_chat.click()
 
                 chat=Chat(self.driver, self.user, self.word_capture, self.greet_string)
-                if chat.greet_status() and (chat.name() not in self.chats):
+                if chat.greetStatus() and (chat.name() not in self.chats):
 
                     input_box=self.driver.find_element_by_class_name('DuUXI')
                     input_box.send_keys(self.greet_string+Keys.ENTER)
@@ -148,7 +143,7 @@ class Chat:
 
         return chat_msgs
 
-    def greet_status(self):
+    def greetStatus(self):
 
         chat_msgs = self.readMsgs()
         res=False
