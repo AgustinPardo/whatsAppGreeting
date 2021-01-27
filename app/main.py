@@ -1,4 +1,3 @@
-import appCore
 import argparse
 import os
 import sys
