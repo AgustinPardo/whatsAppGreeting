@@ -70,11 +70,11 @@ class Panel:
         self.chats=chats
         self.timeout=timeout
         
-        self.span=1200
+        self.span=0
 
     def spanPanel(self, panel):
         self.driver.execute_script('arguments[0].scrollTop = %s' %self.span, panel)
-        self.span += 1200
+        self.span += 1000
 
         return 0
 

@@ -1,8 +1,5 @@
-from appCore import appCore
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QGridLayout, QTextEdit, QLineEdit
-from PyQt5.QtCore import QSize
-
 def main():
+
     app = QApplication([])
     window = QWidget()
     window.setMinimumSize(QSize(500, 250))#500 150
@@ -23,24 +20,31 @@ def main():
         for i in reversed(range(layout.count())): 
             layout.itemAt(i).widget().setParent(None)
 
-        # Add text to the layout
-        layout.addWidget(QLabel('Running!'), 1, 0, 1, 3)
-
         # parse the input text
         response_msg_texy=response_msg.text()
         word_capture_list=word_capture.toPlainText().split("\n")
         word_capture_list=[i for i in word_capture_list if i  != '']
 
         # Run the app
-        driver = appCore.Driver()
-        panel = appCore.Panel(driver.driver, driver.getUser(), word_capture_list, response_msg_texy)
-        panel.greetChats()
-        driver.disconnect()
+
+        try:
+            driver = appCore.Driver()
+            panel = appCore.Panel(driver.driver, driver.getUser(), word_capture_list, response_msg_texy)
+            panel.greetChats()
+            driver.disconnect()
+
+        except TimeoutException as exception:
+            # Add text to the layout
+            layout.addWidget(QLabel('Log-in to WhatsApp web please and restart the app!'), 1, 0, 1, 3)
+
+        except InvalidArgumentException as exception:
+            # Add text to the layout
+            layout.addWidget(QLabel('Close all the Browser windows cotrolled by Selenium and re-start the execution!'), 1, 0, 1, 3)
 
         return 0
 
     btn = QPushButton('Send Greets!')
-    btn.clicked.connect(btnAction)
+    word_capture_list= btn.clicked.connect(btnAction)
     layout.addWidget(btn, 2, 1)
 
     window.setLayout(layout)
