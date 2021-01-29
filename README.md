@@ -14,15 +14,24 @@ Download the lastest release for your platform:
 
 https://chromedriver.storage.googleapis.com/index.html?path=88.0.4324.96/
 
-For linux: Unzip and copy the chromedriver file in /usr/local/bin directory
+### For linux
+```bash
+cd ~/Downloads/
+```
 
-Put the words/phrase that you want to respond in a file (See example file in example/capture.txt). They should be one by line.
+```bash
+unzip chromedriver_linux64
+```
+
+```bash
+mv chromedriver_linux64 /usr/local/bin
+```
 
 ## Usage
 ```python
 python3 main.py -c capture.txt -r "respond to send"
 ```
-The words/phrase that you want to respond should be one by line. The capture isn't case sensitive, so dont worry aboyt the case:
+Put the words/phrase that you want to respond in a file (See example file in example/capture.txt). The words/phrase that you want to respond should be one by line. The capture isn't case sensitive, so dont worry aboyt the case:
 
 ![](https://github.com/AgustinPardo/whatsAppGreeting/blob/main/example/capture.png)
 
