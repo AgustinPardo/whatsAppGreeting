@@ -11,7 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 class Driver:
 
-    def __init__(self, browser_user="UserWapp"):
+    def __init__(self, browser_user="UserWapp2"):
 
         self.browser_user=browser_user
         self.driver=self.connect()

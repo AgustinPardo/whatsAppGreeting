@@ -1,6 +1,7 @@
 import argparse
 import os
 import sys
+import appCore
 
 def captureParse(file):
     with open(file) as file:
@@ -12,7 +13,7 @@ def captureParse(file):
 def parse_arguments():
     """Inputs parser"""
     parser = argparse.ArgumentParser(description='Respond to the selected words automatically')
-    parser.add_argument("-c", '--capture', default="capture.txt", help="File that contains the capture of words/phrases that indicate that you should respond")
+    parser.add_argument("-c", '--capture', default=None, help="File that contains the capture of words/phrases that indicate that you should respond")
     parser.add_argument("-r", '--response', default=None, help="Response message")
 
     return parser
