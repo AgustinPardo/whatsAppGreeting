@@ -22,8 +22,11 @@ Put the words/phrase that you want to respond in a file (See example file in exa
 ```python
 python3 main.py -c capture.txt -r "respond to send"
 ```
-## Create binaries for Linux
+The words/phrase that you want to respond should be one by line. The capture isn't case sensitive, so dont worry aboyt the case:
 
+![](https://github.com/AgustinPardo/whatsAppGreeting/blob/main/example/capture.png)
+
+## Create binaries for Linux
 ```bash
 bash binary/binary.sh
 ```
