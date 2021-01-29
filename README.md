@@ -5,9 +5,9 @@ The idea is based on capturing words or phrases of the whastApp web chat and res
 Based on python3, selenium, and BeautifulSoup
 
 ## Install requierements
-
+```python
 pip install -r requirements/requirements.txt
-
+```
 ## install ChromeDriver - WebDriver for Chrome
 
 Download the lastest release for your platform:
@@ -19,9 +19,9 @@ For linux: Unzip and copy the chromedriver file in /usr/local/bin directory
 Put the words/phrase that you want to respond in a file (See example file in example/capture.txt). They should be one by line.
 
 ## Usage
-
+```python
 python3 main.py -c capture.txt -r "respond to send"
-
+```
 ## Create binaries for Linux
 
 ```bash
@@ -39,7 +39,7 @@ crontab -e
 
 Add the next line to the end of the file:
 
-```
+```bash
 0 20 * * * dt=$(date '+%d/%m/%Y %H:%M:%S'); echo "$dt" >> /home/user/whatsAppGreeting/config/cronLog/log.log; python3 /home/user/whatsAppGreeting/app/main.py -h >> /home/user/whatsAppGreeting/config/cronLog/log.log
 ```
 
