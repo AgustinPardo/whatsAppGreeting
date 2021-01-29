@@ -21,3 +21,28 @@ Put the words/phrase that you want to respond in a file (See example file in exa
 ## Usage
 
 python3 main.py -c capture.txt -r "respond to send"
+
+## Create binaries for Linux
+
+```bash
+bash binary/binary.sh
+```
+
+In the binary folder you will have the binary of the app called "main" ready to run
+
+## Use cron to set the auto running in Linux
+
+Run:
+```bash
+crontab -e
+```
+
+Add the next line to the end of the file:
+
+```
+0 20 * * * dt=$(date '+%d/%m/%Y %H:%M:%S'); echo "$dt" >> /home/user/whatsAppGreeting/config/cronLog/log.log; python3 /home/user/whatsAppGreeting/app/main.py -h >> /home/user/whatsAppGreeting/config/cronLog/log.log
+```
+
+This is set up to run every day at 20 hs. You can set up diferent time chaning 0 20 * * * cron time schedule.
+
+
