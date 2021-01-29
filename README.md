@@ -21,4 +21,3 @@ Put the words/phrase that you want to respond in a file (See example file in exa
 ## Usage
 
 python3 main.py -c capture.txt -r "respond to send"
-
